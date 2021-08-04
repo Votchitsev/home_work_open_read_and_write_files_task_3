@@ -1,51 +1,32 @@
-class Text:
-    text = ''
-    size = 0
-    name = ''
+text_list = []
 
-    def rate(self, size_l):
-        for i in size_l:
-            if self.size == i:
-                return size_list.index(i) + 1
+with open('1.txt', 'r') as text_1:
+    text_1_count_lines = 0
+    text_1 = text_1.read()
+    for string in text_1.split('\n'):
+        text_1_count_lines += 1
 
-    def add_new_file(self):
-        result_text.insert(self.rate(size_list) - 1, f'{self.name}\n{self.size}\n{"".join(self.text)}\n')
+    text_1_string_counted = f'1.txt\n{text_1_count_lines}\n{text_1}'
+    text_list.append(text_1_string_counted)
 
 
-text_1 = Text()
-with open('1.txt', 'r', encoding='utf-8') as file_1:
-    text_1.text = file_1.readlines()
-    text_1.size = len(text_1.text)
+with open('2.txt', 'r') as text_2:
+    text_2_count_lines = 0
+    text_2 = text_2.read()
+    for string in text_2.split('\n'):
+        text_2_count_lines += 1
 
-text_2 = Text()
-with open('2.txt', 'r', encoding='utf-8') as file_2:
-    text_2.text = file_2.readlines()
-    text_2.size = len(text_2.text)
+    text_2_string_counted = f'1.txt\n{text_2_count_lines}\n{text_2}'
+    text_list.append(text_2_string_counted)
 
-text_3 = Text()
-with open('3.txt', 'r', encoding='utf-8') as file_3:
-    text_3.text = file_3.readlines()
-    text_3.size = len(text_3.text)
+with open('3.txt', 'r') as text_3:
+    text_3_count_lines = 0
+    text_3 = text_3.read()
+    for string in text_3.split('\n'):
+        text_3_count_lines += 1
 
+    text_3_string_counted = f'1.txt\n{text_3_count_lines}\n{text_3}'
+    text_list.append(text_3_string_counted)
 
-text_1.name = '1.txt'
-text_2.name = '2.txt'
-text_3.name = '3.txt'
-
-result_text = []
-
-size_list = [text_1.size, text_2.size, text_3.size]
-size_list = sorted(size_list)
-text_1.rate(size_list)
-text_2.rate(size_list)
-text_3.rate(size_list)
-
-text_1.add_new_file()
-text_2.add_new_file()
-text_3.add_new_file()
-
-text = ''.join(result_text)
-
-with open('result_file.txt', 'w', encoding='utf-8') as file:
-    file.write(text)
+print(text_list)
 
