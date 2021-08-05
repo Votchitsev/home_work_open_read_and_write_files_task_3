@@ -1,32 +1,39 @@
 text_list = []
 
-with open('1.txt', 'r') as text_1:
-    text_1_count_lines = 0
-    text_1 = text_1.read()
-    for string in text_1.split('\n'):
-        text_1_count_lines += 1
+with open('1.txt', 'r') as text:
+    text_count_lines = 0
+    text = text.read()
+    for string in text.split('\n'):
+        text_count_lines += 1
 
-    text_1_string_counted = f'1.txt\n{text_1_count_lines}\n{text_1}'
-    text_list.append(text_1_string_counted)
+    text_dict = {'name': '1.txt', 'lines': str(text_count_lines), 'value': text}
+    text_list.append(text_dict)
 
 
-with open('2.txt', 'r') as text_2:
-    text_2_count_lines = 0
-    text_2 = text_2.read()
-    for string in text_2.split('\n'):
-        text_2_count_lines += 1
+with open('2.txt', 'r') as text:
+    text_count_lines = 0
+    text = text.read()
+    for string in text.split('\n'):
+        text_count_lines += 1
 
-    text_2_string_counted = f'1.txt\n{text_2_count_lines}\n{text_2}'
-    text_list.append(text_2_string_counted)
+    text_dict = {'name': '2.txt', 'lines': str(text_count_lines), 'value': text}
+    text_list.append(text_dict)
 
-with open('3.txt', 'r') as text_3:
-    text_3_count_lines = 0
-    text_3 = text_3.read()
-    for string in text_3.split('\n'):
-        text_3_count_lines += 1
 
-    text_3_string_counted = f'1.txt\n{text_3_count_lines}\n{text_3}'
-    text_list.append(text_3_string_counted)
+with open('3.txt', 'r') as text:
+    text_count_lines = 0
+    text = text.read()
+    for string in text.split('\n'):
+        text_count_lines += 1
 
-print(text_list)
+    text_dict = {'name': '3.txt', 'lines': str(text_count_lines), 'value': text}
+    text_list.append(text_dict)
+
+text_list = sorted(text_list, key=lambda k: k['lines'])
+
+with open('result_file.txt', 'w', encoding='utf-8') as file:
+    for text in text_list:
+        for i in text.values():
+            file.write(i + '\n')
+
 
